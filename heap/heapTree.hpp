@@ -46,8 +46,7 @@ private:
         }
     }
 public:
-    heapTree(std::vector<Node<T>*> &numbers):nodes(numbers) {
-        heapSize = numbers.size();
+    heapTree(std::vector<Node<T>*> &numbers):nodes(numbers), heapSize(numbers.size()) {
         buildMaxHeap();
     }
     
