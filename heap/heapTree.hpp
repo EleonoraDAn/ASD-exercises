@@ -9,10 +9,7 @@ class heapTree {
 private:
     std::vector<Node<T>*> nodes;
     int heapSize;
-    
-    int getHeapSize() {
-        return heapSize;
-    }
+
     
     void swap(Node<T>* &a, Node<T>* &b) {
         Node<T>* temp = a;
@@ -48,6 +45,10 @@ private:
 public:
     heapTree(std::vector<Node<T>*> &numbers):nodes(numbers), heapSize(numbers.size()) {
         buildMaxHeap();
+    }
+    
+    int getHeapSize() {
+        return heapSize;
     }
     
     T getMax() const {

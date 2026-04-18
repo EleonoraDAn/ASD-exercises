@@ -4,22 +4,17 @@
 #include <vector>
 #include "Node.hpp"
 
+template <typename T>
 class Tree
 {
 private:
-    /* data */
+    Node<T>* root;
 public:
-    Tree(/* args */);
+    Tree():root(nullptr){}
     ~Tree();
 };
 
-Tree::Tree(/* args */)
-{
-}
 
-Tree::~Tree()
-{
-}
 
 
 #endif
