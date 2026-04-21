@@ -16,7 +16,7 @@ int main() {
     inputFile.close();
 
 
-    std::ofstream outputFile("output.txt");
+    std::ofstream outputFile("../outputString.txt");
     if(!outputFile.is_open()) {
         std::cout << "Errore nell'apertura del file di output!\n";
         return 1;
