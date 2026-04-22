@@ -1,0 +1,25 @@
+BFS:
+Id: 1
+Valore: 1
+Distanza dal nodo 0: 1
+----------------------------
+Id: 2
+Valore: 2
+Distanza dal nodo 0: 2
+----------------------------
+Id: 3
+Valore: 3
+Distanza dal nodo 0: 1
+
+BFS RICORSIVA:
+Id: 1
+Valore: 1
+Distanza dal nodo 0: 1
+----------------------------
+Id: 2
+Valore: 2
+Distanza dal nodo 0: 2
+----------------------------
+Id: 3
+Valore: 3
+Distanza dal nodo 0: 3
