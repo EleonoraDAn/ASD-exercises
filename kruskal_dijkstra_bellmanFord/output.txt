@@ -1,0 +1,14 @@
+Bellman Ford result: Trovato ciclo negativo!
+
+DIJKSTRA:
+Dijkstra non puo' essere eseguito perche' ci sono dei pesi negativi
+
+MST KRUSKAL:
+Source: 1
+Destination: 2
+Weight: -5
+------------------------------------
+Source: 0
+Destination: 1
+Weight: 1
+
