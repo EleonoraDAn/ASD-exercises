@@ -1,0 +1,23 @@
+Soluzione 01
+Lo zaino contiene i seguenti elementi:
+Valore: 7
+Peso: 2
+Valore: 6
+Peso: 3
+Valore: 4
+Peso: 2
+----------------------------
+Soluzione frazionale
+Lo zaino contiene i seguenti elementi:
+Valore: 4
+Peso: 2
+Frazione: 1
+Valore: 3
+Peso: 1
+Frazione: 1
+Valore: 6
+Peso: 3
+Frazione: 1
+Valore: 7
+Peso: 2
+Frazione: 0
