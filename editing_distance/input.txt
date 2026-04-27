@@ -1,0 +1,5 @@
+4
+telefono
+braso
+libro
+salotto
