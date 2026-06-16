@@ -1,41 +1,54 @@
+#include <iostream>
+#include <vector>
 #include "CatenaMontaggio.hpp"
+
 int main() {
-    std::vector<int> elab1 = {4, 5, 3, 2};
-    std::vector<int> trasf1 = {2, 1, 3};
-    int avvio1 = 2, fermo1 = 1;
-    CatenaMontaggio catena1(elab1, trasf1, avvio1, fermo1);
+    // 1. Definiamo i tempi di elaborazione (Matrice 2 x 4)
+    // Riga 0: Linea 1 -> stazioni: 4, 5, 3, 2
+    // Riga 1: Linea 2 -> stazioni: 2, 10, 1, 4
+    std::vector<std::vector<int>> elab = {
+        {4, 5, 3, 2},
+        {2, 10, 1, 4}
+    };
 
-    std::vector<int> elab2 = {2, 10, 1, 4};
-    std::vector<int> trasf2 = {3, 2, 1};
-    int avvio2 = 4, fermo2 = 2;
-    CatenaMontaggio catena2(elab2, trasf2, avvio2, fermo2);
+    // 2. Definiems i tempi di trasferimento (Matrice 2 x 3)
+    // Riga 0: da Linea 1 (stazione j) a Linea 2 (stazione j+1) -> 2, 1, 3
+    // Riga 1: da Linea 2 (stazione j) a Linea 1 (stazione j+1) -> 3, 2, 1
+    std::vector<std::vector<int>> trasf = {
+        {2, 1, 3},
+        {3, 2, 1}
+    };
 
-    int e1 = elab1[0], e2 = elab2[0];
-    int x1 = fermo1, x2 = fermo2;
-    std::vector<int> L1(elab1.size()), L2(elab2.size());
-    int fStar = std::min(catena1.percorsoPiuVeloce(e1, e2, x1, x2, L1), catena2.percorsoPiuVeloce(e2, e1, x2, x1, L2));
+    // 3. Tempi di ingresso (avvio) e di uscita (fermo) per ciascuna linea
+    int avvio1 = 2, avvio2 = 4;
+    int fermo1 = 1, fermo2 = 2;
 
-    std::cout << "Il percorso piu' veloce richiede " << fStar << " unita di tempo.\n";
-    std::cout << "Sequenza di svolgimento delle attivita' sulla prima catena: ";
-    for(unsigned int i = 0; i < L1.size(); i++) {
-        if(i>0) {
-            if(L1[i] != L1[i-1]) {
-                std::cout << " | ";
-            }
+    // 4. Inizializziamo l'UNICA catena di montaggio globale
+    CatenaMontaggio catena(elab, trasf, avvio1, avvio2, fermo1, fermo2);
+
+    // 5. Prepariamo la matrice L per salvare il percorso (2 righe x n stazioni)
+    int n = elab[0].size();
+    std::vector<std::vector<int>> L(2, std::vector<int>(n, 0));
+
+    // 6. Calcoliamo il percorso più veloce
+    int fStar = catena.percorsoPiuVeloce(L);
+
+    // 7. Output del risultato globale
+    std::cout << "Il percorso piu' veloce richiede " << fStar << " unita di tempo.\n\n";
+
+    // 8. Ricostruzione del percorso ottimale a ritroso (Backtracking)
+    // L[0][0] contiene l'ultima linea toccata prima dell'uscita
+    int linea_corrente = L[0][0]; 
+    
+    std::cout << "Percorso ottimale (dall'ultima stazione alla prima):\n";
+    for (int j = n - 1; j >= 0; j--) {
+        std::cout << "Stazione " << j + 1 << " sulla Linea " << linea_corrente << "\n";
+        
+        // Se non siamo alla prima stazione, guardiamo da dove siamo venuti
+        if (j > 0) {
+            linea_corrente = L[linea_corrente - 1][j];
         }
-        std::cout << "L" << L1[i] << " ";
     }
 
-    std::cout << std::endl;
-    std::cout << "Sequenza di svolgimento delle attivita' sulla seconda catena: ";
-    for(unsigned int i = 0; i<L2.size(); i++) {
-        if(i > 0) {
-            if(L2[i] != L2[i-1]) {
-                std::cout << " | ";
-            }
-        }
-        std::cout << "L" << L2[i] << " ";
-    }
-    std::cout << std::endl;
     return 0;
 }
