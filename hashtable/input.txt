@@ -1,11 +1,11 @@
 10 
-3 5 
-2 7 
-1 5 
-2 6 
-6 4 
-4 9 
-4 7 
-5 9 
-0 9 
-8 10 
+3 ciao
+2 hello
+1 casa 
+2 gatto 
+6 cane 
+4 farfalla 
+4 telefono 
+5 cuscino 
+0 pizza 
+8 pollo 
