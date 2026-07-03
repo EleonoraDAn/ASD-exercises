@@ -30,7 +30,7 @@ void LCS() {
     std::memset(b, 0, sizeof(b));
 
     for(int i = 1; i <= n; i++) {
-        for(int j = 1; j <= m; j++) {
+        for(int j = 1 ; j <= m; j++) {
             if(X[i - 1] == Y[j - 1]) {
                 c[i][j] = c[i-1][j-1] + 1;
                 b[i][j] = '\\';
