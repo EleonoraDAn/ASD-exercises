@@ -1,0 +1,4 @@
+Value: 1, u->d: 1, u->f: 8
+Value: 2, u->d: 2, u->f: 7
+Value: 3, u->d: 3, u->f: 6
+Value: 4, u->d: 4, u->f: 5
