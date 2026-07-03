@@ -31,16 +31,21 @@ public:
 class Graph {
 public:
     vector<Node*> nodes;
-    map<int, vector<int>> adj;
+    map<Node*, vector<Node*>> adj;
     stack<Node*> ordinTop;
+    map<int, Node*> ricercaNodo;
     int time = 0;
     void aggiungiNodo(int val) {
     Node* nodo = new Node(val);
     nodes.push_back(nodo);
+    ricercaNodo[val] = nodo;
     }
 
     void aggiungiArco(int a, int b) {
-    adj[a].push_back(b);
+    Node* u = ricercaNodo[a];
+    Node* v = ricercaNodo[b];
+    if(u != nullptr && v != nullptr)
+        adj[u].push_back(v);
     }
 
     bool ordinamentoTop() {
@@ -65,16 +70,7 @@ public:
         time ++;
         u->d = time;
         u->color = GRAY;
-        for(auto v : adj[u->value]) {
-            Node* node = nullptr;
-            for(Node* n : nodes) {
-                if(n->value == v) {
-                    node = n;
-                    break;
-                }
-            }
-            if(node == nullptr)
-                continue;
+        for(auto node : adj[u]) {
             if(node->color == GRAY)
                 return false;
             else if(node->color == WHITE) {
