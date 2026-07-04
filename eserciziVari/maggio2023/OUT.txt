@@ -1,0 +1,15 @@
+Value: 0,
+ parent: NULL,
+ dist: 0
+Value: 1,
+ parent: 0,
+ dist: 1
+Value: 2,
+ parent: 0,
+ dist: 1
+Value: 3,
+ parent: 0,
+ dist: 1
+Value: 4,
+ parent: 2,
+ dist: 2
