@@ -1,0 +1,7 @@
+Chiave: C, Valore: 20
+Chiave: V, Valore: 10
+Chiave: B, Valore: 15
+Chiave: A, Valore: 30
+Chiave: D, Valore: 40
+La stringa: CAVA codificata e': 0011101111
+La stringa decodificata e': CAVA
