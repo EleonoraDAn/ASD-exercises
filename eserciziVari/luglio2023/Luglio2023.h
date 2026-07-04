@@ -14,7 +14,7 @@ l'ordine preorder, poi metodo per stampare su file di output l'albero secondo il
 preorder
 
 codifica e decodifica di human considerando l'abr dato come
-albero di human*/
+albero di huffman*/
 
 class Node {
 public:
