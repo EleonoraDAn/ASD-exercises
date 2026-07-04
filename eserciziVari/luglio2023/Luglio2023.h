@@ -8,9 +8,13 @@
 #include <string>
 #include <fstream>
 using namespace std;
-/*Costruire abr con coppia chiave carattere da file, dove era salvato secondo
+/*
+Costruire abr con coppia chiave carattere da file, dove era salvato secondo
 l'ordine preorder, poi metodo per stampare su file di output l'albero secondo il
-preorder*/
+preorder
+
+codifica e decodifica di human considerando l'abr dato come
+albero di human*/
 
 class Node {
 public:
